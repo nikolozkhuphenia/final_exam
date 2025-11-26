@@ -74,7 +74,7 @@ def register_page():
         user = User(username=form.username.data, email=form.email.data, password=hashed_pw)
         db.session.add(user)
         db.session.commit()
-        flash(f'მომხმარებელი წარმატებით შეიქმნა {form.username.data}', 'success')
+        flash(f'User is created {form.username.data}', 'success')
         return redirect(url_for('login_page'))
     return render_template('register.html', title='Register', form=form)
 
@@ -86,10 +86,10 @@ def login_page():
         user = User.query.filter_by(email=form.email.data).first()
         if user and check_password_hash(user.password, form.password.data):
             login_user(user)
-            flash(f'თქვენ წარმატებით გაიარეთ', 'success')
+            flash(f'You have logged in', 'success')
             return redirect(url_for('profile'))
         else:
-            flash(f"არასწორია", 'danger')
+            flash(f"Invalid", 'danger')
     return render_template('login.html', title='Login', form=form)
 
 
@@ -97,7 +97,7 @@ def login_page():
 @login_required
 def logout():
     logout_user()
-    flash("თქვენ გამოსვლა წარმატებით შესრულდა", "success")
+    flash("You have logged out", "success")
     return redirect(url_for('index_page'))
 
 
