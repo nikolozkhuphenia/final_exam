@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-3">
+    <h2>Edit Post</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-2">
+            {{ form.title.label(class="form-label") }}
+            {{ form.title(class="form-control") }}
+        </div>
+        <div class="mb-2">
+            {{ form.location.label(class="form-label") }}
+            {{ form.location(class="form-control") }}
+        </div>
+        <div class="mb-2">
+            {{ form.celery.label(class="form-label") }}
+            {{ form.celery(class="form-control") }}
+        </div>
+        <div class="mb-2">
+            {{ form.company_name.label(class="form-label") }}
+            {{ form.company_name(class="form-control") }}
+        </div>
+        <div class="mb-2">
+            {{ form.short_desc.label(class="form-label") }}
+            {{ form.short_desc(class="form-control") }}
+        </div>
+        <div class="mb-2">
+            {{ form.full_desc.label(class="form-label") }}
+            {{ form.full_desc(class="form-control") }}
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Update Post</button>
+    </form>
+</div>
+{% endblock %}
